@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject obstacle;
     public GameObject enemy;
+    public GameObject terrain;
 
-            void Awake()
+    void Awake()
             {
                 Instance = this;
             }
@@ -35,7 +36,12 @@ public class GameManager : MonoBehaviour
             {
                 return currentState;
             }
-
+        
+            void SummonTerrain()
+            {
+                Vector3 pos = new Vector3(0, 0, 0);
+                Instantiate(terrain, pos, transform.rotation);
+            }
             void SummonObstacles()
             {
                 Vector3 pos = new Vector3(Random.Range(-1, 2), 1, 15);
